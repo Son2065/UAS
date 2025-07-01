@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'uas_app',
     'api',
     'rest_framework',
-    'rest_framework.authtoken', #add this for token
     'django_filters',
 ]
 
@@ -107,15 +106,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-     'DEFAULT_AUTHENTICATION_CLASSES': [
-         'rest_framework.authentication.TokenAuthentication',
-    #     'rest_framework.authentication.BasicAuthentication',
-    #     #'rest_framework.authentication.SessionAuthentication',
-     ],
-     'DEFAULT_PERMISSION_CLASSES' : [
-         'rest_framework.permissions.IsAuthenticated',
-     ],
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES' : [
+          'rest_framework.permissions.AllowAny',
+      ],
+     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 

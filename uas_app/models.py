@@ -64,8 +64,6 @@ class TouristSpot(models.Model):
     distance_from_city = models.DecimalField(max_digits=10, decimal_places=2, help_text="Dalam kilometer (km)")
     image = models.ImageField(upload_to='tourism_images/', blank=True, null=True)
     status = models.CharField(max_length=20, choices=status_choices, default='Aktif')
-    user_create = models.ForeignKey(User, related_name='created_tourist_spots', on_delete=models.SET_NULL, null=True, blank=True)
-    user_update = models.ForeignKey(User, related_name='updated_tourist_spots', on_delete=models.SET_NULL, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
 
