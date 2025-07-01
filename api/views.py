@@ -1,12 +1,9 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework import permissions
 from uas_app.models import User, TouristSpot, Province, City, TourismType
 from api.serializers import (TouristSpotSerializer, ProvinceSerializer, CitySerializer, TourismTypeSerializer)
 from django.http import JsonResponse
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, generics
 
 class TouristSpotList(APIView):
 
