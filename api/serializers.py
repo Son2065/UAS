@@ -20,7 +20,6 @@ class TourismTypeSerializer(serializers.ModelSerializer):
 
 
 class TouristSpotSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = TouristSpot
         fields = [

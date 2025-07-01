@@ -377,38 +377,3 @@ class TourismTypeDetail(APIView):
             'status': status.HTTP_200_OK,
             'message': 'Data jenis wisata berhasil dihapus'
         })
-
-class ProvinceFilterAPI(generics.ListAPIView):
-    queryset = Province.objects.all()
-    serializer_class = ProvinceSerializer
-    permission_classes = [permissions.AllowAny]
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
-    filterset_fields = ['name', 'abbreviation', 'capital_city']
-    ordering_fields = ['name', 'population', 'area_km2']
-
-
-class CityFilterAPI(generics.ListAPIView):
-    queryset = City.objects.all()
-    serializer_class = CitySerializer
-    permission_classes = [permissions.AllowAny]
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
-    filterset_fields = ['name', 'province', 'is_capital']
-    ordering_fields = ['name', 'population']
-
-
-class TourismTypeFilterAPI(generics.ListAPIView):
-    queryset = TourismType.objects.all()
-    serializer_class = TourismTypeSerializer
-    permission_classes = [permissions.AllowAny]
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
-    filterset_fields = ['name', 'is_active']
-    ordering_fields = ['name', 'is_active']
-
-
-class TouristSpotFilterAPI(generics.ListAPIView):
-    queryset = TouristSpot.objects.all()
-    serializer_class = TouristSpotSerializer
-    permission_classes = [permissions.AllowAny]
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
-    filterset_fields = ['name', 'address', 'city', 'tourism_type', 'status']
-    ordering_fields = ['name', 'city', 'distance_from_city', 'created_on']
